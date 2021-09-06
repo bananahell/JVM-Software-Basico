@@ -1,7 +1,7 @@
 # Trabalho de Software Básico
 
 Trabalho da matéria de Software Básico  
-14/0065032 - Pedro Nogueira  
+14/0065032 - Pedro Henriques Nogueira  
 18/0112520 - Paulo Mauricio Costa Lopes  
 18/0046926 - Mariana Borges de Sampaio  
 15/0010290 - Gabriel Nazareno Halabi  
