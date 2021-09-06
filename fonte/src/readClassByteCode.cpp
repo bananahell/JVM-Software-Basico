@@ -40,9 +40,9 @@ u4 ReadClassByteCode::read4bytes(FILE *fp) {
 UTF8_INFO ReadClassByteCode::getUTF8Info(FILE *fp) {
   UTF8_INFO utf8_info;
   utf8_info.length = read2bytes(fp);
-  int contador = utf8_info.length;
-  utf8_info.bytes = (u1 *)malloc(contador * sizeof(u1));
-  for (int i = 0; i < contador; i++) {
+  int counter = utf8_info.length;
+  utf8_info.bytes = (u1 *)malloc(counter * sizeof(u1));
+  for (int i = 0; i < counter; i++) {
     utf8_info.bytes[i] = read1byte(fp);
   }
   return utf8_info;
@@ -283,10 +283,10 @@ LineNumberTable e o seta no campo lineNumberTable.
 LineNumberTable_attribute ReadClassByteCode::getLineNumberTableAttribute(FILE *fp) {
   LineNumberTable_attribute line_number_table_attribute;
   line_number_table_attribute.lineNumberTableLength = read2bytes(fp);
-  int contador = line_number_table_attribute.lineNumberTableLength;
+  int counter = line_number_table_attribute.lineNumberTableLength;
   line_number_table_attribute.lineNumberTable =
-      static_cast<LineNumberTable *>(malloc(contador * sizeof(LineNumberTable)));
-  for (int i = 0; i < contador; i++) {
+      static_cast<LineNumberTable *>(malloc(counter * sizeof(LineNumberTable)));
+  for (int i = 0; i < counter; i++) {
     line_number_table_attribute.lineNumberTable[i] = getLineNumberTable(fp);
   }
   return line_number_table_attribute;
@@ -321,10 +321,10 @@ retorna um LocalVariableTable e o seta no campo localVariableTable.
 LocalVariableTable_attribute ReadClassByteCode::getLocalVariableAttribute(FILE *fp) {
   LocalVariableTable_attribute local_variable_table_attribute;
   local_variable_table_attribute.localVariableTableLength = read2bytes(fp);
-  int contador = local_variable_table_attribute.localVariableTableLength;
+  int counter = local_variable_table_attribute.localVariableTableLength;
   local_variable_table_attribute.localVariableTable =
-      static_cast<LocalVariableTable *>(malloc(contador * sizeof(LocalVariableTable)));
-  for (int i = 0; i < contador; i++) {
+      static_cast<LocalVariableTable *>(malloc(counter * sizeof(LocalVariableTable)));
+  for (int i = 0; i < counter; i++) {
     local_variable_table_attribute.localVariableTable[i] = getLocalVariableTable(fp);
   }
   return local_variable_table_attribute;
@@ -341,9 +341,9 @@ entrada na tabela utiliza o método read2bytes para ler o arquivo e seta o campo
 Exceptions_attribute ReadClassByteCode::getExceptionsAttribute(FILE *fp) {
   Exceptions_attribute exceptions_attribute;
   exceptions_attribute.numberOfExceptions = read2bytes(fp);
-  int contador = exceptions_attribute.numberOfExceptions;
-  exceptions_attribute.exceptionIndexTable = (u2 *)malloc(contador * sizeof(u2));
-  for (int i = 0; i < contador; i++) {
+  int counter = exceptions_attribute.numberOfExceptions;
+  exceptions_attribute.exceptionIndexTable = (u2 *)malloc(counter * sizeof(u2));
+  for (int i = 0; i < counter; i++) {
     exceptions_attribute.exceptionIndexTable[i] = read2bytes(fp);
   }
   return exceptions_attribute;
@@ -399,9 +399,9 @@ class na tabela utiliza o método getClass para pegar a class e seta o campo.
 InnerClasses_attribute ReadClassByteCode::getInnerClassesAttribute(FILE *fp) {
   InnerClasses_attribute inner_classes_attribute;
   inner_classes_attribute.numberOfClasses = read2bytes(fp);
-  int contador = inner_classes_attribute.numberOfClasses;
-  inner_classes_attribute.classes = static_cast<Class *>(malloc(contador * sizeof(Class)));
-  for (int i = 0; i < contador; i++) {
+  int counter = inner_classes_attribute.numberOfClasses;
+  inner_classes_attribute.classes = static_cast<Class *>(malloc(counter * sizeof(Class)));
+  for (int i = 0; i < counter; i++) {
     inner_classes_attribute.classes[i] = getClass(fp);
   }
   return inner_classes_attribute;

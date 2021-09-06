@@ -62,93 +62,93 @@ void ClassFile::setConstantPool(FILE* fp) {
       // Class
       case 7:
         cpInfo.info.class_info = ReadClassByteCode().getClassInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // Fieldref
       case 9:
         cpInfo.info.fieldref_info = ReadClassByteCode().getFieldRefInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // Methodref
       case 10:
         cpInfo.info.methodref_info = ReadClassByteCode().getMethodRefInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // InterfaceMethodref
       case 11:
         cpInfo.info.interfaceMethodref_info = ReadClassByteCode().getInterfaceMethodRefInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // String
       case 8:
         cpInfo.info.string_info = ReadClassByteCode().getStringInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // Integer
       case 3:
         cpInfo.info.integer_info = ReadClassByteCode().getIntegerInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // Float
       case 4:
         cpInfo.info.float_info = ReadClassByteCode().getFloatInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // Long
       case 5:
         cpInfo.info.long_info = ReadClassByteCode().getLongInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         CP_info cpInfo1;
         cpInfo1.tag = 0;
-        constantPool.push_back(cpInfo1);
+        this->constantPool.push_back(cpInfo1);
         i++;
         break;
 
       // Double
       case 6:
         cpInfo.info.double_info = ReadClassByteCode().getDoubleInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         CP_info cpInfo2;
         cpInfo2.tag = 0;
-        constantPool.push_back(cpInfo2);
+        this->constantPool.push_back(cpInfo2);
         i++;
         break;
 
       // NameAndType
       case 12:
         cpInfo.info.nameAndType_info = ReadClassByteCode().getNameAndTypeInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // UTF8
       case 1:
         cpInfo.info.utf8_info = ReadClassByteCode().getUTF8Info(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // MethodHandle
       case 15:
         cpInfo.info.methodHandle_info = ReadClassByteCode().getMethodHandleInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // MethodType
       case 16:
         cpInfo.info.methodType_info = ReadClassByteCode().getMethodTypeInfo(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
 
       // InvokeDynamic
       case 18:
         cpInfo.info.invokeDynamic_info = ReadClassByteCode().getInvokeDynamic_info(fp);
-        constantPool.push_back(cpInfo);
+        this->constantPool.push_back(cpInfo);
         break;
     }
   }
@@ -184,7 +184,7 @@ void ClassFile::setInterfacesCount(FILE* fp) {
 void ClassFile::setInterfaces(FILE* fp) {
   for (int i = 0; i < this->interfacesCount; i++) {
     u2 interface = ReadClassByteCode().read2bytes(fp);
-    interfaces.push_back(interface);
+    this->interfaces.push_back(interface);
   }
 }
 
@@ -211,7 +211,7 @@ void ClassFile::setFields(FILE* fp) {
     for (int j = 0; j < contador; j++) {
       fieldInfo.attributes[j] = ReadClassByteCode().getAttributeInfo(fp, constantPool);
     }
-    fields.push_back(fieldInfo);
+    this->fields.push_back(fieldInfo);
   }
 }
 
@@ -237,7 +237,7 @@ void ClassFile::setMethods(FILE* fp) {
     for (int j = 0; j < counter; j++) {
       methodInfo.attributes[j] = ReadClassByteCode().getAttributeInfo(fp, constantPool);
     }
-    methods.push_back(methodInfo);
+    this->methods.push_back(methodInfo);
   }
 }
 
@@ -253,7 +253,7 @@ void ClassFile::setAttributesCount(FILE* fp) {
  */
 void ClassFile::setAttributes(FILE* fp) {
   for (int i = 0; i < this->attributesCount; i++) {
-    attributes.push_back(ReadClassByteCode().getAttributeInfo(fp, constantPool));
+    this->attributes.push_back(ReadClassByteCode().getAttributeInfo(fp, constantPool));
   }
 }
 
