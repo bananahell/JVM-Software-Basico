@@ -271,15 +271,9 @@ LineNumberTable ReadClassByteCode::getLineNumberTable(FILE *fp) {
   return lineNumberTable;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar
-lineNumberTableLength, utiliza esse valor para saber o número de
-lineNumberTable. Utiliza o malloc para alocar memória com o tamanho adequado,
-para cada lineNumberTable utiliza o método getLineNumberTable que retorna um
-LineNumberTable e o seta no campo lineNumberTable.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct LineNumberTable_attribute.
-*/
+/* le o arquivo fp (.class) e define lineNumberTableLength, utiliza esse valor para saber o número de
+ *lineNumberTable. usa malloc para alocar memoria adequadamente
+ */
 LineNumberTable_attribute ReadClassByteCode::getLineNumberTableAttribute(FILE *fp) {
   LineNumberTable_attribute line_number_table_attribute;
   line_number_table_attribute.lineNumberTableLength = read2bytes(fp);
@@ -292,13 +286,10 @@ LineNumberTable_attribute ReadClassByteCode::getLineNumberTableAttribute(FILE *f
   return line_number_table_attribute;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar os campos
-startPc, length, name_index e descriptor_index e index da struct tipo
-LocalVariableTable.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct LocalVariableTable.
-*/
+/*
+ * Define os campos startPc, length, name_index e descriptor_index e index da struct tipo
+ * LocalVariableTable
+ */
 LocalVariableTable ReadClassByteCode::getLocalVariableTable(FILE *fp) {
   LocalVariableTable localVariableTable;
   localVariableTable.startPc = read2bytes(fp);
@@ -309,15 +300,10 @@ LocalVariableTable ReadClassByteCode::getLocalVariableTable(FILE *fp) {
   return localVariableTable;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar
-localVariableTableLength, utiliza esse valor para saber o número de
-lineNumberTable. Utiliza o malloc para alocar memória com o tamanho adequado,
-para cada localVariableTable utiliza o método getLocalVariableTable que
-retorna um LocalVariableTable e o seta no campo localVariableTable.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct LocalVariableTable_attribute.
-*/
+/*
+ * Define localVariableTableLength
+ * Usa o malloc para alocar memória adequadamente
+ */
 LocalVariableTable_attribute ReadClassByteCode::getLocalVariableAttribute(FILE *fp) {
   LocalVariableTable_attribute local_variable_table_attribute;
   local_variable_table_attribute.localVariableTableLength = read2bytes(fp);
@@ -330,14 +316,10 @@ LocalVariableTable_attribute ReadClassByteCode::getLocalVariableAttribute(FILE *
   return local_variable_table_attribute;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar
-numberOfExceptions, utiliza esse valor para saber o número de entradas na
-tabela. Utiliza o malloc para alocar memória com o tamanho adequado, para cada
-entrada na tabela utiliza o método read2bytes para ler o arquivo e seta o campo.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct Exceptions_attribute.
-*/
+/*
+ * Define  numberOfExceptions (número de entradas na
+ * tabela). Utiliza o malloc para alocar memória adequadamente
+ */
 Exceptions_attribute ReadClassByteCode::getExceptionsAttribute(FILE *fp) {
   Exceptions_attribute exceptions_attribute;
   exceptions_attribute.numberOfExceptions = read2bytes(fp);
@@ -349,36 +331,24 @@ Exceptions_attribute ReadClassByteCode::getExceptionsAttribute(FILE *fp) {
   return exceptions_attribute;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar o campo
-sourceFile_index da struct tipo SourceFile_attribute.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct SourceFile_attribute.
-*/
+/*
+ * Define o campo sourceFile_index da struct tipo SourceFile_attribute.
+ */
 SourceFile_attribute ReadClassByteCode::getSourceFileAttribute(FILE *fp) {
   SourceFile_attribute source_file_attribute;
   source_file_attribute.sourceFile_index = read2bytes(fp);
   return source_file_attribute;
 }
 
-/**
-Cria uma struct do tipo Deprecated_attribute(vazia) e retorna ela, não foi
-implementado.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct Deprecated_attribute.
-*/
 Deprecated_attribute ReadClassByteCode::getDeprecatedAttribute() {
   Deprecated_attribute deprecated_attribute;
   return deprecated_attribute;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar os campos
-innerClassInfo_index, outerClassInfo_index, innerName_index e
-innerClassAccessFlags da struct tipo Class.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct Class.
-*/
+/*
+ *Define os campos innerClassInfo_index, outerClassInfo_index, innerName_index e
+ *innerClassAccessFlags da struct tipo Class.
+ */
 Class ReadClassByteCode::getClass(FILE *fp) {
   Class class_object;
   class_object.innerClassInfo_index = read2bytes(fp);
@@ -388,14 +358,10 @@ Class ReadClassByteCode::getClass(FILE *fp) {
   return class_object;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar
-nnumber_of_classes, utiliza esse valor para saber o número de class's(struct
-class). Utiliza o malloc para alocar memória com o tamanho adequado, para cada
-class na tabela utiliza o método getClass para pegar a class e seta o campo.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct InnerClasses_attribute.
-*/
+/*
+ *Define nnumber_of_classes, utiliza esse valor para saber o número de class's(struct
+ *class). para cada class na tabela utiliza o método getClass para pegar a class e define o campo
+ */
 InnerClasses_attribute ReadClassByteCode::getInnerClassesAttribute(FILE *fp) {
   InnerClasses_attribute inner_classes_attribute;
   inner_classes_attribute.numberOfClasses = read2bytes(fp);
@@ -407,23 +373,14 @@ InnerClasses_attribute ReadClassByteCode::getInnerClassesAttribute(FILE *fp) {
   return inner_classes_attribute;
 }
 
-/**
-Cria uma struct do tipo Synthetic_attribute(vazia) e retorna ela, não foi
-implementado.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct Synthetic_attribute.
-*/
 Synthetic_attribute ReadClassByteCode::getSyntheticAttribute() {
   Synthetic_attribute synthetic_attribute;
   return synthetic_attribute;
 }
 
-/**
-Lê o arquivo .class com o método read2bytes para pegar e setar o campo
-constantValue_index da struct tipo ConstantValue_attribute.
-@param *fp ponteiro para o arquivo .class sendo lido.
-@return struct ConstantValue_attribute.
-*/
+/*
+ * Define o campo constantValue_index da struct tipo ConstantValue_attribute.
+ */
 ConstantValue_attribute ReadClassByteCode::getConstantValueAttribute(FILE *fp) {
   ConstantValue_attribute constant_value_attribute;
   constant_value_attribute.constantValue_index = read2bytes(fp);
