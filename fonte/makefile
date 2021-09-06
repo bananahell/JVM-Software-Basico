@@ -102,7 +102,7 @@ executa:
 
 ##### Call for cppcheck
 cppcheck:
-	cppcheck --enable=all . -I./include --suppress=missingIncludeSystem
+	cppcheck --enable=all . -I./include --suppress=missingIncludeSystem --suppress=unusedFunction
 
 ##### Call for valgrind coverage
 valgrind:

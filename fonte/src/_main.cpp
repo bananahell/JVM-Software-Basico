@@ -1,28 +1,31 @@
 #include <iostream>
 #include <string>
-#include "Classfile.h"
-/*#include "leitor.h"*/
+#include <vector>
 
-
+#include "classFile.h"
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  Classfile *classfile;
-  char *Arquivo;
+  const char *nome_classe = "default.class";
 
-if(argc > 1) {
-    Arquivo = (char *) malloc(strlen(argv[1]) * sizeof(char));
-    strcpy(Arquivo, argv[1]);
-  } else {
-    printf("O arquivo .class nao foi incluido.\nEncerrando o programa.......\n");
-    exit(0);
+  // Quando igual a 1 nao foi passado nenhum parametro
+  if (argc > 1) {
+    nome_classe = argv[1];
   }
 
-  class_file = (Classfile *) malloc(sizeof(Classfile));
+  FILE *fp = fopen(nome_classe, "rb");
+  if (fp == NULL) {
+    cout << "Erro no arquivo : " << nome_classe << endl;
+    return 0;
+  }
 
-  class_file = lerArquivo(class_file, nomeArquivo);
-
-  imprimirClassFile(class_file);
-  
+  ClassFile *classe = new ClassFile(fp);
+  cout << "Magic number = " << classe->getMagicNumber() << endl;
+  cout << "Minor version = " << classe->getMinorVersion() << endl;
+  cout << "Major version = " << classe->getMajorVersion() << endl;
+  cout << "Interfaces count = " << classe->getInterfacesCount() << endl;
+  cout << "Fields count = " << classe->getFieldsCount() << endl;
+  cout << "Methods count = " << classe->getMethodsCount() << endl;
+  fclose(fp);
   return 0;
 }
