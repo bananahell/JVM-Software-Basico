@@ -258,33 +258,18 @@ void ClassFile::setAttributes(FILE* fp) {
 }
 
 u4 ClassFile::getMagicNumber() { return magicNumber; }
-
 u2 ClassFile::getMinorVersion() { return minorVersion; }
-
 u2 ClassFile::getMajorVersion() { return majorVersion; }
-
 u2 ClassFile::getConstantPoolSize() { return constantPoolSize; }
-
 vector<CP_info> ClassFile::getConstantPool() { return constantPool; }
-
 u2 ClassFile::getAccessFlags() { return accessFlags; }
-
 u2 ClassFile::getThisClass() { return thisClass; }
-
 u2 ClassFile::getSuperClass() { return superClass; }
-
 u2 ClassFile::getInterfacesCount() { return interfacesCount; }
-
 vector<u2> ClassFile::getInterfaces() { return interfaces; }
-
 u2 ClassFile::getFieldsCount() { return fieldsCount; }
-
 vector<Field_info> ClassFile::getFields() { return fields; }
-
 u2 ClassFile::getMethodsCount() { return methodsCount; }
-
 vector<Method_info> ClassFile::getMethods() { return methods; }
-
 u2 ClassFile::getAttributesCount() { return attributesCount; }
-
 vector<Attribute_info> ClassFile::getAttributes() { return attributes; }
