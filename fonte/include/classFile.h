@@ -1,5 +1,3 @@
-#include <vector>
-
 #include "readClassByteCode.h"
 
 using namespace std;

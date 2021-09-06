@@ -1,0 +1,214 @@
+[-----------------------------Magic, Minor, Major-----------------------------]
+Magic number: 0xcafebabe
+Minor Version: 0
+Major Version: 52
+
+
+[--------------------------------Constant Pool--------------------------------]
+Constant Pool Count: 68
+[1]: 	
+[2]: 	
+[3]: 
+
+[4]: 
+[5]: 
+
+[6]: 	
+[7]: 
+[8]: 
+
+[9]: 
+
+[10]: 
+
+[11]: 
+[12]: 
+
+[13]: 
+[14]: 
+
+[15]: 
+[16]: 
+[17]: 
+[18]: 
+[19]: 
+[20]: 
+[21]: 
+[22]: 
+[23]: 
+[24]: 
+[25]: 
+[26]: 
+[27]: 
+[28]: 
+[29]: 
+[30]: 
+[31]: 
+[32]: 
+[33]: 
+[34]: 
+[35]: 
+[36]: 
+[37]: 
+[38]: 
+[39]: 
+[40]: 
+[41]: 
+[42]: 
+[43]: 
+[44]: 
+[45]: 
+[46]: 
+[47]: 
+[48]: 
+[49]: 
+[50]: 
+[51]: 
+[52]: 
+[53]: 
+[54]: 
+[55]: 
+[56]: 
+[57]: 
+[58]: 
+[59]: 
+[60]: 
+[61]: 
+[62]: 
+[63]: 
+[64]: 
+[65]: 
+[66]: 
+[67]: 
+[68]: 
+
+
+[-----------------------------Access, This, Super-----------------------------]
+Access Flags: 33
+This Class: 4
+Super Class: 15
+
+
+[---------------------------------Interfaces----------------------------------]
+Interfaces Count: 0
+
+
+[-----------------------------------Fields------------------------------------]
+Fields Count: 2
+----------------------------------------
+[1]: 
+    Access Flags: 2
+    Name Index: 16
+    Descriptor Index: 17
+    Attributes Count: 0
+----------------------------------------
+[2]: 
+    Access Flags: 2
+    Name Index: 18
+    Descriptor Index: 17
+    Attributes Count: 0
+----------------------------------------
+
+
+[-----------------------------------Methods-----------------------------------]
+Methods Count: 9
+----------------------------------------
+[1]: 
+    Access Flags: 1
+    Name Index: 19
+    Descriptor Index: 20
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 47
+      **********
+----------------------------------------
+[2]: 
+    Access Flags: 1
+    Name Index: 26
+    Descriptor Index: 20
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 47
+      **********
+----------------------------------------
+[3]: 
+    Access Flags: 1
+    Name Index: 27
+    Descriptor Index: 28
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 62
+      **********
+----------------------------------------
+[4]: 
+    Access Flags: 1
+    Name Index: 29
+    Descriptor Index: 28
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 62
+      **********
+----------------------------------------
+[5]: 
+    Access Flags: 1
+    Name Index: 30
+    Descriptor Index: 31
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 89
+      **********
+----------------------------------------
+[6]: 
+    Access Flags: 1
+    Name Index: 32
+    Descriptor Index: 33
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 66
+      **********
+----------------------------------------
+[7]: 
+    Access Flags: 1
+    Name Index: 34
+    Descriptor Index: 33
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 66
+      **********
+----------------------------------------
+[8]: 
+    Access Flags: 9
+    Name Index: 35
+    Descriptor Index: 33
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 56
+      **********
+----------------------------------------
+[9]: 
+    Access Flags: 9
+    Name Index: 36
+    Descriptor Index: 37
+    Attributes Count: 1
+      **********
+      Attribute Name Index: 21
+      Attribute Length: 198
+      **********
+----------------------------------------
+
+
+[---------------------------------Attributes----------------------------------]
+Attributes Count: 1
+----------------------------------------
+[1]: 
+    Attribute Name Index: 42
+    Attribute Length: 2
+----------------------------------------
