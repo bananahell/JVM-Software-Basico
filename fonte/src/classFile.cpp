@@ -55,7 +55,7 @@ void ClassFile::setConstantPool(FILE* fp) {
   int constantPoolSize = this->constantPoolSize - 1;
 
   for (int i = 0; i < constantPoolSize; i++) {
-    uint8_t tag = ReadClassByteCode().read1byte(fp);
+    u1 tag = ReadClassByteCode().read1byte(fp);
     CP_info cpInfo;
     cpInfo.tag = tag;
     switch (tag) {
