@@ -197,13 +197,30 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
   outputFile << "[-----------------------------Access, This, Super-----------------------------]" << endl;
   outputFile << "Access Flags: "
              << "0x" << hex << setfill('0') << setw(4) << classFile->getAccessFlags() << dec << endl;
-  outputFile << "This Class: " << classFile->getThisClass() << endl;
-  outputFile << "Super Class: " << classFile->getSuperClass() << endl << endl << endl;
+  outputFile << "This Class: "
+             << byteCodeInfo.getUTF8(classFile->getConstantPool().at(
+                    classFile->getConstantPool().at(classFile->getThisClass() - 1).info.class_info.name_index - 1))
+             << "    *CP Index: " << classFile->getThisClass() << endl;
+  outputFile << "Super Class: "
+             << byteCodeInfo.getUTF8(classFile->getConstantPool().at(
+                    classFile->getConstantPool().at(classFile->getSuperClass() - 1).info.class_info.name_index - 1))
+             << "    *CP Index: " << classFile->getSuperClass() << endl
+             << endl
+             << endl;
 
   outputFile << "[---------------------------------Interfaces----------------------------------]" << endl;
   outputFile << "Interfaces Count: " << classFile->getInterfacesCount() << endl;
   for (int i = 0; i < classFile->getInterfacesCount(); i++) {
-    outputFile << "[" << i + 1 << "]: " << classFile->getInterfaces().at(i) << endl;
+    outputFile << "----------------------------------------" << endl;
+    outputFile
+        << "[" << i + 1 << "]: "
+        << byteCodeInfo.getUTF8(classFile->getConstantPool().at(
+               classFile->getConstantPool().at((int)classFile->getInterfaces().at(i) - 1).info.class_info.name_index -
+               1))
+        << "    *CP Index: " << (int)classFile->getInterfaces().at(i) << endl;
+  }
+  if (classFile->getInterfacesCount() > 0) {
+    outputFile << "----------------------------------------" << endl;
   }
   outputFile << endl << endl;
 
@@ -212,12 +229,12 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
   outputFile << "Fields Count: " << classFile->getFieldsCount() << endl;
   for (int i = 0; i < classFile->getFieldsCount(); i++) {
     outputFile << "----------------------------------------" << endl;
-    outputFile << "[" << i + 1 << "]: "
+    outputFile << "[" << i + 1 << "] Name and Type: "
+               << byteCodeInfo.getUTF8(classFile->getConstantPool().at(classFile->getFields().at(i).name_index - 1))
+               << " <"
                << byteCodeInfo.getUTF8(
                       classFile->getConstantPool().at(classFile->getFields().at(i).descriptor_index - 1))
-               << " "
-               << byteCodeInfo.getUTF8(classFile->getConstantPool().at(classFile->getFields().at(i).name_index - 1))
-               << endl;
+               << ">" << endl;
     outputFile << "    Access Flags: "
                << "0x" << hex << setfill('0') << setw(4) << classFile->getFields().at(i).access_flags << dec << endl;
     outputFile << "    Name Index: " << classFile->getFields().at(i).name_index << endl;
@@ -233,7 +250,9 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
       outputFile << "      **********" << endl;
     }
   }
-  outputFile << "----------------------------------------" << endl;
+  if (classFile->getFieldsCount() > 0) {
+    outputFile << "----------------------------------------" << endl;
+  }
   outputFile << endl << endl;
 
   // TODO
@@ -241,12 +260,12 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
   outputFile << "Methods Count: " << classFile->getMethodsCount() << endl;
   for (int i = 0; i < classFile->getMethodsCount(); i++) {
     outputFile << "----------------------------------------" << endl;
-    outputFile << "[" << i + 1 << "]: "
+    outputFile << "[" << i + 1 << "] Name and Type: "
+               << byteCodeInfo.getUTF8(classFile->getConstantPool().at(classFile->getMethods().at(i).name_index - 1))
+               << " <"
                << byteCodeInfo.getUTF8(
                       classFile->getConstantPool().at(classFile->getMethods().at(i).descriptor_index - 1))
-               << " "
-               << byteCodeInfo.getUTF8(classFile->getConstantPool().at(classFile->getMethods().at(i).name_index - 1))
-               << endl;
+               << ">" << endl;
     outputFile << "    Access Flags: "
                << "0x" << hex << setfill('0') << setw(4) << classFile->getMethods().at(i).access_flags << dec << endl;
     outputFile << "    Name Index: " << classFile->getMethods().at(i).name_index << endl;
@@ -262,7 +281,9 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
       outputFile << "      **********" << endl;
     }
   }
-  outputFile << "----------------------------------------" << endl;
+  if (classFile->getMethodsCount() > 0) {
+    outputFile << "----------------------------------------" << endl;
+  }
   outputFile << endl << endl;
 
   // TODO
@@ -270,11 +291,16 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
   outputFile << "Attributes Count: " << classFile->getAttributesCount() << endl;
   for (int i = 0; i < classFile->getAttributesCount(); i++) {
     outputFile << "----------------------------------------" << endl;
-    outputFile << "[" << i + 1 << "]: " << endl;
+    outputFile << "[" << i + 1 << "] Attribute Name: "
+               << byteCodeInfo.getUTF8(
+                      classFile->getConstantPool().at(classFile->getAttributes().at(i).attributeName_index - 1))
+               << endl;
     outputFile << "    Attribute Name Index: " << classFile->getAttributes().at(i).attributeName_index << endl;
     outputFile << "    Attribute Length: " << classFile->getAttributes().at(i).attributeLength << endl;
   }
-  outputFile << "----------------------------------------" << endl;
+  if (classFile->getAttributesCount() > 0) {
+    outputFile << "----------------------------------------" << endl;
+  }
 
   outputFile.close();
   return true;
