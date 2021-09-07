@@ -6,7 +6,6 @@ using namespace std;
 
 class ReadClassByteCode {
  public:
-  ReadClassByteCode();
   static u1 read1byte(FILE *);
   static u2 read2bytes(FILE *);
   static u4 read4bytes(FILE *);

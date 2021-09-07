@@ -5,8 +5,6 @@
 
 using namespace std;
 
-ReadClassByteCode::ReadClassByteCode() {}
-
 // Abre arquivo, le 1 byte do arquivo .class e retorna 1 byte
 u1 ReadClassByteCode::read1byte(FILE *fp) {
   u1 byte = 0;

@@ -182,7 +182,7 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
         // break;
 
       default:
-        outputFile << "[" << i + 1 << "]: " << (int)cpInfo.tag << endl;
+        outputFile << "[" << i + 1 << "]: " << (int)cpInfo.tag << " (tag unknown)" << endl;
         break;
     }
     outputFile << endl;
