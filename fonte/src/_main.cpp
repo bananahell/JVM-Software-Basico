@@ -25,7 +25,8 @@ int main(int argc, char *argv[]) {
   ClassFile *classFile = new ClassFile(fp);
 
   string outputFileName = "output.txt";
-  if (writeAllToFile(classFile, outputFileName)) {
+  bool writeSuccess = writeAllToFile(classFile, outputFileName);
+  if (writeSuccess) {
     cout << "Success! Results in file " << outputFileName << endl;
   }
   fclose(fp);

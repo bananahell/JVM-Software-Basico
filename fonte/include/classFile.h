@@ -21,21 +21,10 @@ class ClassFile {
   u2 attributesCount;
   vector<Attribute_info> attributes;
 
-  void setMagicNumber(FILE*);
-  void setMajorVersion(FILE*);
-  void setMinorVersion(FILE*);
-  void setConstantPoolSize(FILE*);
   void setConstantPool(FILE*);
-  void setAccessFlags(FILE*);
-  void setThisClass(FILE*);
-  void setSuperClass(FILE*);
-  void setInterfacesCount(FILE*);
   void setInterfaces(FILE*);
-  void setFieldsCount(FILE*);
   void setFields(FILE*);
-  void setMethodsCount(FILE*);
   void setMethods(FILE*);
-  void setAttributesCount(FILE*);
   void setAttributes(FILE*);
 
  public:
