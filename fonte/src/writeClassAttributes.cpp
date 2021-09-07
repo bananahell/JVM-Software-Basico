@@ -22,7 +22,175 @@ bool writeAllToFile(ClassFile *classFile, string outputFileName) {
   outputFile << "[--------------------------------Constant Pool--------------------------------]" << endl;
   outputFile << "Constant Pool Count: " << classFile->getConstantPoolSize() - 1 << endl;
   for (int i = 0; i < classFile->getConstantPoolSize() - 1; i++) {
-    outputFile << "[" << i + 1 << "]: " << byteCodeInfo.getUTF8(classFile->getConstantPool().at(i)) << endl;
+    CP_info cpInfo = classFile->getConstantPool().at(i);
+    switch (cpInfo.tag) {
+      // Class
+      case 7:
+        outputFile << "[" << i + 1 << "] Class:" << endl;
+        outputFile << "    Name: "
+                   << byteCodeInfo.getUTF8(classFile->getConstantPool().at(cpInfo.info.class_info.name_index - 1))
+                   << "    *CP Index: " << cpInfo.info.class_info.name_index << endl;
+        break;
+
+      // Fieldref
+      case 9:
+        outputFile << "[" << i + 1 << "] FieldRef:" << endl;
+        outputFile << "    Class: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.fieldref_info.class_index - 1)
+                                                              .info.class_info.name_index -
+                                                          1))
+                   << "    *CP Index: " << cpInfo.info.fieldref_info.class_index << endl;
+        outputFile << "    Name And Type: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.fieldref_info.nameAndType_index - 1)
+                                                              .info.nameAndType_info.name_index -
+                                                          1))
+                   << " <"
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.fieldref_info.nameAndType_index - 1)
+                                                              .info.nameAndType_info.descriptor_index -
+                                                          1))
+                   << ">    *CP Index: " << cpInfo.info.fieldref_info.nameAndType_index << endl;
+        break;
+
+      // Methodref
+      case 10:
+        outputFile << "[" << i + 1 << "] MethodRef:" << endl;
+        outputFile << "    Class: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.methodref_info.class_index - 1)
+                                                              .info.class_info.name_index -
+                                                          1))
+                   << "    *CP Index: " << cpInfo.info.methodref_info.class_index << endl;
+        outputFile << "    Name And Type: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.methodref_info.nameAndType_index - 1)
+                                                              .info.nameAndType_info.name_index -
+                                                          1))
+                   << " <"
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.methodref_info.nameAndType_index - 1)
+                                                              .info.nameAndType_info.descriptor_index -
+                                                          1))
+                   << ">    *CP Index: " << cpInfo.info.methodref_info.nameAndType_index << endl;
+        break;
+
+      // InterfaceMethodref
+      case 11:
+        outputFile << "[" << i + 1 << "] Interface MethodRef:" << endl;
+        outputFile << "    Class: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(classFile->getConstantPool()
+                                                              .at(cpInfo.info.interfaceMethodref_info.class_index - 1)
+                                                              .info.class_info.name_index -
+                                                          1))
+                   << "    *CP Index: " << cpInfo.info.interfaceMethodref_info.class_index << endl;
+        outputFile << "    Name And Type: "
+                   << byteCodeInfo.getUTF8(classFile->getConstantPool().at(
+                          classFile->getConstantPool()
+                              .at(cpInfo.info.interfaceMethodref_info.nameAndType_index - 1)
+                              .info.nameAndType_info.name_index -
+                          1))
+                   << " <"
+                   << byteCodeInfo.getUTF8(classFile->getConstantPool().at(
+                          classFile->getConstantPool()
+                              .at(cpInfo.info.interfaceMethodref_info.nameAndType_index - 1)
+                              .info.nameAndType_info.descriptor_index -
+                          1))
+                   << ">    *CP Index: " << cpInfo.info.interfaceMethodref_info.nameAndType_index << endl;
+        break;
+
+      // String
+      case 8:
+        outputFile << "[" << i + 1 << "] String:" << endl;
+        outputFile << "    String: "
+                   << byteCodeInfo.getUTF8(classFile->getConstantPool().at(cpInfo.info.string_info.string_index - 1))
+                   << "    *CP Index: " << cpInfo.info.string_info.string_index << endl;
+        break;
+
+      // Integer
+      case 3:
+        outputFile << "[" << i + 1 << "] Integer:" << endl;
+        outputFile << "    Integer: " << (int)cpInfo.info.integer_info.bytes << endl;
+        break;
+
+      // Float
+      case 4:
+        outputFile << "[" << i + 1 << "] Float:" << endl;
+        outputFile << "    Float: " << (float)cpInfo.info.float_info.bytes << endl;
+        break;
+
+      // Long
+      case 5: {
+        outputFile << "[" << i + 1 << "] Long:" << endl;
+        long result = ((long)cpInfo.info.long_info.highBytes << 4) + (long)cpInfo.info.long_info.lowBytes;
+        outputFile << "    Long: " << result << endl;
+        break;
+      }
+
+      // Double
+      case 6: {
+        outputFile << "[" << i + 1 << "] Double:" << endl;
+        double result = ((double)(cpInfo.info.long_info.highBytes << 4)) + ((double)cpInfo.info.long_info.lowBytes);
+        outputFile << "    Double: " << result << endl;
+        break;
+      }
+
+      // NameAndType
+      case 12:
+        outputFile << "[" << i + 1 << "] Name and Type:" << endl;
+        outputFile << "    Name: "
+                   << byteCodeInfo.getUTF8(classFile->getConstantPool().at(cpInfo.info.nameAndType_info.name_index - 1))
+                   << "    *CP Index: " << cpInfo.info.nameAndType_info.name_index << endl;
+        outputFile << "    Type: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(cpInfo.info.nameAndType_info.descriptor_index - 1))
+                   << "    *CP Index: " << cpInfo.info.nameAndType_info.descriptor_index << endl;
+        break;
+
+      // UTF8
+      case 1:
+        outputFile << "[" << i + 1 << "] UTF8:" << endl;
+        outputFile << "    Length: " << (int)cpInfo.info.utf8_info.length << endl;
+        outputFile << "    Content: " << byteCodeInfo.getUTF8(cpInfo) << endl;
+        break;
+
+      // MethodHandle
+      case 15:
+        outputFile << "[" << i + 1 << "] Method Handle:" << endl;
+        outputFile << "    Reference Kind: " << (int)cpInfo.info.methodHandle_info.referenceKind
+                   << "    *CP Index: " << cpInfo.info.methodHandle_info.referenceKind << endl;
+        outputFile << "    Reference: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(cpInfo.info.methodHandle_info.reference_index - 1))
+                   << "    *CP Index: " << cpInfo.info.methodHandle_info.reference_index << endl;
+        break;
+
+      // MethodType
+      case 16:
+        outputFile << "[" << i + 1 << "] Method Type:" << endl;
+        outputFile << "    Type: "
+                   << byteCodeInfo.getUTF8(
+                          classFile->getConstantPool().at(cpInfo.info.methodType_info.descriptor_index - 1))
+                   << "    *CP Index: " << cpInfo.info.methodType_info.descriptor_index << endl;
+        break;
+
+        // InvokeDynamic
+        // case 18:
+        // break;
+
+      default:
+        outputFile << "[" << i + 1 << "]: " << (int)cpInfo.tag << endl;
+        break;
+    }
+    outputFile << endl;
   }
   outputFile << endl << endl;
 

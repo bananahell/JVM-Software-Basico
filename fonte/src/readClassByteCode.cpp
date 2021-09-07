@@ -168,11 +168,7 @@ string ReadClassByteCode::getUTF8(CP_info cpInfo) {
   string utf8;
   int counter = cpInfo.info.utf8_info.length;
   for (int i = 0; i < counter; i++) {
-    if (((int)cpInfo.info.utf8_info.bytes[i]) < 32 || ((int)cpInfo.info.utf8_info.bytes[i]) > 126) {
-      utf8.push_back('.');
-    } else {
-      utf8.push_back(cpInfo.info.utf8_info.bytes[i]);
-    }
+    utf8.push_back(cpInfo.info.utf8_info.bytes[i]);
   }
   return utf8;
 }

@@ -1,72 +1,127 @@
 [-----------------------------Magic, Minor, Major-----------------------------]
 Magic number: 0xcafebabe
 Minor Version: 0
-Major Version: 55
+Major Version: 46
 
 
 [--------------------------------Constant Pool--------------------------------]
-Constant Pool Count: 55
-[1]: ..E.h.
-[2]: ..E.h.
-[3]: ..E.h.
-[4]: ..E.h.
-[5]: ..E.h..
-[6]: ..E.h.....E.h............_..+1...../.U...../.U...Cn..
-[7]: ..E.h.....E.h............_..+1...../.U...../.U...Cn...
-[8]: nomeNavio
-[9]: Ljava/lang/String;
-[10]: registro
-[11]: I
-[12]: nomeDono
-[13]: combustivel
-[14]: Ljava/lang/Double;
-[15]: getNomeNavio
-[16]: ()Ljava/lang/String;
-[17]: Code
-[18]: LineNumberTable
-[19]: LocalVariableTable
-[20]: this
-[21]: LNavio;
-[22]: setNomeNavio
-[23]: (Ljava/lang/String;)V
-[24]: getRegistro
-[25]: ()I
-[26]: setRegistro
-[27]: (I)V
-[28]: getNomeDono
-[29]: setNomeDono
-[30]: getCombustivel
-[31]: ()Ljava/lang/Double;
-[32]: setCombustivel
-[33]: (Ljava/lang/Double;)V
-[34]: isAncorado
-[35]: ()Z
-[36]: setAncorado
-[37]: (Z)V
-[38]: ancorado
-[39]: Z
-[40]: abaixarAncora
-[41]: (LNavio;)V
-[42]: navio
-[43]: navegar
-[44]: <init>
-[45]: (Ljava/lang/String;ILjava/lang/String;Ljava/lang/Double;)V
-[46]: SourceFile
-[47]: Navio.java
-[48]: Navio.ja
-[49]: Navio.java
-[50]: Navio.java..
-[51]: Navio.java...
-[52]: Navio.java..............!.......Navio.......
-[53]: Navio
-[54]: java/lang/Object
-[55]: ()V
+Constant Pool Count: 30
+[1] MethodRef:
+    Class: java/lang/Object    *CP Index: 9
+    Name And Type: <init> <()V>    *CP Index: 18
+
+[2] Double:
+    Double: 7.80057e+08
+
+[3]: 0
+
+[4] Double:
+    Double: 2.73362e+08
+
+[5]: 0
+
+[6] FieldRef:
+    Class: java/lang/System    *CP Index: 19
+    Name And Type: out <Ljava/io/PrintStream;>    *CP Index: 20
+
+[7] MethodRef:
+    Class: java/io/PrintStream    *CP Index: 21
+    Name And Type: println <(D)V>    *CP Index: 22
+
+[8] Class:
+    Name: double_aritmetica    *CP Index: 23
+
+[9] Class:
+    Name: java/lang/Object    *CP Index: 24
+
+[10] UTF8:
+    Length: 6
+    Content: <init>
+
+[11] UTF8:
+    Length: 3
+    Content: ()V
+
+[12] UTF8:
+    Length: 4
+    Content: Code
+
+[13] UTF8:
+    Length: 15
+    Content: LineNumberTable
+
+[14] UTF8:
+    Length: 4
+    Content: main
+
+[15] UTF8:
+    Length: 22
+    Content: ([Ljava/lang/String;)V
+
+[16] UTF8:
+    Length: 10
+    Content: SourceFile
+
+[17] UTF8:
+    Length: 22
+    Content: double_aritmetica.java
+
+[18] Name and Type:
+    Name: <init>    *CP Index: 10
+    Type: ()V    *CP Index: 11
+
+[19] Class:
+    Name: java/lang/System    *CP Index: 25
+
+[20] Name and Type:
+    Name: out    *CP Index: 26
+    Type: Ljava/io/PrintStream;    *CP Index: 27
+
+[21] Class:
+    Name: java/io/PrintStream    *CP Index: 28
+
+[22] Name and Type:
+    Name: println    *CP Index: 29
+    Type: (D)V    *CP Index: 30
+
+[23] UTF8:
+    Length: 17
+    Content: double_aritmetica
+
+[24] UTF8:
+    Length: 16
+    Content: java/lang/Object
+
+[25] UTF8:
+    Length: 16
+    Content: java/lang/System
+
+[26] UTF8:
+    Length: 3
+    Content: out
+
+[27] UTF8:
+    Length: 21
+    Content: Ljava/io/PrintStream;
+
+[28] UTF8:
+    Length: 19
+    Content: java/io/PrintStream
+
+[29] UTF8:
+    Length: 7
+    Content: println
+
+[30] UTF8:
+    Length: 4
+    Content: (D)V
+
 
 
 [-----------------------------Access, This, Super-----------------------------]
-Access Flags: 0x0421
-This Class: 6
-Super Class: 7
+Access Flags: 0x0021
+This Class: 8
+Super Class: 9
 
 
 [---------------------------------Interfaces----------------------------------]
@@ -74,165 +129,31 @@ Interfaces Count: 0
 
 
 [-----------------------------------Fields------------------------------------]
-Fields Count: 4
-----------------------------------------
-[1]: Ljava/lang/String; nomeNavio
-    Access Flags: 0x0002
-    Name Index: 8
-    Descriptor Index: 9
-    Attributes Count: 0
-----------------------------------------
-[2]: I registro
-    Access Flags: 0x0002
-    Name Index: 10
-    Descriptor Index: 11
-    Attributes Count: 0
-----------------------------------------
-[3]: Ljava/lang/String; nomeDono
-    Access Flags: 0x0002
-    Name Index: 12
-    Descriptor Index: 9
-    Attributes Count: 0
-----------------------------------------
-[4]: Ljava/lang/Double; combustivel
-    Access Flags: 0x0002
-    Name Index: 13
-    Descriptor Index: 14
-    Attributes Count: 0
+Fields Count: 0
 ----------------------------------------
 
 
 [-----------------------------------Methods-----------------------------------]
-Methods Count: 13
+Methods Count: 2
 ----------------------------------------
-[1]: ()Ljava/lang/String; getNomeNavio
+[1]: ()V <init>
     Access Flags: 0x0001
-    Name Index: 15
-    Descriptor Index: 16
+    Name Index: 10
+    Descriptor Index: 11
     Attributes Count: 1
       **********
-      Attribute Name Index: 17
-      Attribute Length: 47
+      Attribute Name Index: 12
+      Attribute Length: 29
       **********
 ----------------------------------------
-[2]: (Ljava/lang/String;)V setNomeNavio
-    Access Flags: 0x0001
-    Name Index: 22
-    Descriptor Index: 23
+[2]: ([Ljava/lang/String;)V main
+    Access Flags: 0x0009
+    Name Index: 14
+    Descriptor Index: 15
     Attributes Count: 1
       **********
-      Attribute Name Index: 17
-      Attribute Length: 62
-      **********
-----------------------------------------
-[3]: ()I getRegistro
-    Access Flags: 0x0001
-    Name Index: 24
-    Descriptor Index: 25
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 47
-      **********
-----------------------------------------
-[4]: (I)V setRegistro
-    Access Flags: 0x0001
-    Name Index: 26
-    Descriptor Index: 27
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 62
-      **********
-----------------------------------------
-[5]: ()Ljava/lang/String; getNomeDono
-    Access Flags: 0x0001
-    Name Index: 28
-    Descriptor Index: 16
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 47
-      **********
-----------------------------------------
-[6]: (Ljava/lang/String;)V setNomeDono
-    Access Flags: 0x0001
-    Name Index: 29
-    Descriptor Index: 23
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 62
-      **********
-----------------------------------------
-[7]: ()Ljava/lang/Double; getCombustivel
-    Access Flags: 0x0001
-    Name Index: 30
-    Descriptor Index: 31
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 47
-      **********
-----------------------------------------
-[8]: (Ljava/lang/Double;)V setCombustivel
-    Access Flags: 0x0001
-    Name Index: 32
-    Descriptor Index: 33
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 62
-      **********
-----------------------------------------
-[9]: ()Z isAncorado
-    Access Flags: 0x0001
-    Name Index: 34
-    Descriptor Index: 35
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 44
-      **********
-----------------------------------------
-[10]: (Z)V setAncorado
-    Access Flags: 0x0001
-    Name Index: 36
-    Descriptor Index: 37
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 53
-      **********
-----------------------------------------
-[11]: (LNavio;)V abaixarAncora
-    Access Flags: 0x0011
-    Name Index: 40
-    Descriptor Index: 41
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 53
-      **********
-----------------------------------------
-[12]: (LNavio;)V navegar
-    Access Flags: 0x0011
-    Name Index: 43
-    Descriptor Index: 41
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 53
-      **********
-----------------------------------------
-[13]: (Ljava/lang/String;ILjava/lang/String;Ljava/lang/Double;)V <init>
-    Access Flags: 0x0001
-    Name Index: 44
-    Descriptor Index: 45
-    Attributes Count: 1
-      **********
-      Attribute Name Index: 17
-      Attribute Length: 128
+      Attribute Name Index: 12
+      Attribute Length: 118
       **********
 ----------------------------------------
 
@@ -241,6 +162,6 @@ Methods Count: 13
 Attributes Count: 1
 ----------------------------------------
 [1]: 
-    Attribute Name Index: 46
+    Attribute Name Index: 16
     Attribute Length: 2
 ----------------------------------------
