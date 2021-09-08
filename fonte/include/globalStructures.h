@@ -4,67 +4,53 @@
 typedef uint8_t u1;
 typedef uint16_t u2;
 typedef uint32_t u4;
+typedef uint64_t u8;
 
 struct CLASS_INFO {
   u2 name_index;
 };
-
 struct FIELD_REF_INFO {
   u2 class_index;
   u2 nameAndType_index;
 };
-
 struct METHOD_REF_INFO {
   u2 class_index;
   u2 nameAndType_index;
 };
-
 struct INTERFACE_METHOD_REF_INFO {
   u2 class_index;
   u2 nameAndType_index;
 };
-
 struct STRING_INFO {
   u2 string_index;
 };
-
 struct INTEGER_INFO {
   u4 bytes;
 };
-
 struct FLOAT_INFO {
   u4 bytes;
 };
-
 struct LONG_INFO {
-  u4 highBytes;
-  u4 lowBytes;
+  u8 bytes;
 };
-
 struct DOUBLE_INFO {
-  u4 highBytes;
-  u4 lowBytes;
+  u8 bytes;
 };
-
 struct NAME_AND_TYPE_INFO {
   u2 name_index;
   u2 descriptor_index;
 };
-
 struct UTF8_INFO {
   u2 length;
   u1 *bytes;
 };
-
 struct METHOD_HANDLE_INFO {
   u1 referenceKind;
   u2 reference_index;
 };
-
 struct METHOD_TYPE_INFO {
   u2 descriptor_index;
 };
-
 struct INVOKE_DYNAMIC_INFO {
   u2 bootstrapMethodAttribute_index;
   u2 nameAndType_index;

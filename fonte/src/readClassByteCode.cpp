@@ -30,6 +30,15 @@ u4 ReadClassByteCode::read4bytes(FILE *fp) {
   return bytes;
 }
 
+// abre arquivo, le 8 bytes considerando littleendian, retorna 8 bytes
+u8 ReadClassByteCode::read8bytes(FILE *fp) {
+  u8 bytes = 0;
+  for (int i = 0; i < 8; i++) {
+    bytes += (u8)(ReadClassByteCode::read1byte(fp)) << (56 - 8 * i);
+  }
+  return bytes;
+}
+
 /* define o lenght
  * malloc para alocar memória com o tamanho adequado
  * le byte a byte
@@ -64,16 +73,14 @@ FLOAT_INFO ReadClassByteCode::getFloatInfo(FILE *fp) {
  */
 LONG_INFO ReadClassByteCode::getLongInfo(FILE *fp) {
   LONG_INFO long_info;
-  long_info.highBytes = ReadClassByteCode::read4bytes(fp);
-  long_info.lowBytes = ReadClassByteCode::read4bytes(fp);
+  long_info.bytes = ReadClassByteCode::read8bytes(fp);
   return long_info;
 }
 
 // le o arquivo fp (.class), define os campos highbytes e low bytes da struct DOUBLE_INFO
 DOUBLE_INFO ReadClassByteCode::getDoubleInfo(FILE *fp) {
   DOUBLE_INFO double_info;
-  double_info.highBytes = ReadClassByteCode::read4bytes(fp);
-  double_info.lowBytes = ReadClassByteCode::read4bytes(fp);
+  double_info.bytes = ReadClassByteCode::read8bytes(fp);
   return double_info;
 }
 

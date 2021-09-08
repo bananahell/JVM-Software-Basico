@@ -1,7 +1,5 @@
 #include "readClassByteCode.h"
 
-using namespace std;
-
 class ClassFile {
  private:
   u4 magicNumber;

@@ -9,6 +9,7 @@ class ReadClassByteCode {
   static u1 read1byte(FILE *);
   static u2 read2bytes(FILE *);
   static u4 read4bytes(FILE *);
+  static u8 read8bytes(FILE *);
   static UTF8_INFO getUTF8Info(FILE *);
   static INTEGER_INFO getIntegerInfo(FILE *);
   static FLOAT_INFO getFloatInfo(FILE *);
