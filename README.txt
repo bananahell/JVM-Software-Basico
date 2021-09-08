@@ -9,3 +9,5 @@ Repositório: https://github.com/bananahell/JVM-Software-Basico
 README.md no repositório contém instruções de execução e explicações do projeto.
 Este zip contém o relatório na pasta raiz e o código fonte na pasta fonte.
 Rode o comando "make ajuda" na pasta fonte para receber instruções.
+Sugestão de comando (Hello World):
+make limpa && make debug && make cppcheck && ./main.exe default.class
