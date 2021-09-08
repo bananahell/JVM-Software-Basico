@@ -62,37 +62,37 @@ Lidos os dados do bytecode do .class, agora são exibidas as informações extra
 
 Agora vou explicar os argumentos que estão presentes no output.txt:  
 
-#### Magic Number, Minor Version, Major Version
+#### ----- Magic Number, Minor Version, Major Version -----
 
 O Magic Number serve para confirmar que essa classe vai seguir as especificações Java de compilação, então ele é necessário nesse começo. Ele é igual a ```0xcafebabe```.  
 As Minor e Major Versions são argumentos que especificam a versão de Java usada para compilar o programa.  
 
-#### Constant Pool
+#### ----- Constant Pool -----
 
 A Constant Pool serve como um mapa para vários argumentos constantes presentes dentro do programa. Vários aspectos se referenciam de volta à Constant Pool, então é importante sempre mantê-la por perto.  
 Dentro dela existem vários tipos de dados, como MethodRef, Class, FieldRef, enfim, todos reconhecidos por sua [tag no começo de sua estrutura](https://github.com/bananahell/JVM-Software-Basico/blob/master/tagsdeconstantes.png). Quase todos eles contêm índices que referenciam um tipo específico de informação também presente na Constant Pool, com exceção do tipo UTF8, que é o "passo final" dessa procura, podendo-se assim finalmente ler a informação procurada.  
 Por exemplo, Class contém em sua estrutura um índice para seu nome. Só checar que variável está presente nesse índice não é o suficiente para saber seu nome, além do mais ele é um índice para o tal nome, então você tem que procurar na Constant Pool a posição desse índice aí para então achar que lá existe uma estrutura de UTF8, que contém finalmente o nome dessa classe escrito.  
 Existem algumas situações muito... interessantes no manejo dessa Constant Pool, mas se atentando a quais índices você está usando te garante as informações que você procura.  
 
-#### Access Flag, This Class, Super Class
+#### ----- Access Flag, This Class, Super Class -----
 
 Essa situação de [Access Flag](https://github.com/bananahell/JVM-Software-Basico/blob/master/fieldsdeacesso.png) é a primeira ocorrência de várias na análise de um .class. Ele é um número que determina quais tipos de acesso você tem a uma estrutura, o que nesse caso é o da própria classe sendo analisada. Esse número contém em seus bits informações sobre se a estrutura é static, public, protected, etc.  
 This Class contém um índice que, se lido da Constant Pool, mostra o nome da classe sendo analisada nesse código.  
 Super Class, do mesmo jeito que This Class, contém um índice a ser lido na Constant Pool, mas esse mostra a classe da qual sua classe extende, sua super class.  
 
-#### Interfaces
+#### ----- Interfaces -----
 
 Aqui são listadas as interfaces da qual a classe se aproveita para sua implementação. De novo, só os índices estão presentes aqui, que são usados para referenciar à Constant Pool para achar o nome da interface desejada.  
 
-#### Fields
+#### ----- Fields -----
 
 Os campos da classe são referenciados aqui. Na estrutura de um campo de classe, estão presentes os índices de seu nome e tipo, que é referencidao na Constant Pool, seu Access Flag, que é o número que determina seus modos de acesso, e sua quantidade de atributos.  
 
-#### Methods
+#### ----- Methods -----
 
 Aqui se encontram os métodos dessa classe. Cada estrutura de método contém uma enormidade de informações, sendo elas o nome do método, seu descritor, contendo seu tipo de retorno e os tipos das variáveis de entrada do método, a Access Flag que dita seus modos de acesso, tabelas de variáveis e tabelas de linhas, representadas por índices e presentes no Constant Pool, e todo o bytecode do assembly gerado pela compilação do programa Java. Esse último é muito interessante porque ele também tem índices a serem interpretados, mas esses índices não se encontram na Constant Pool como muitas vezes acontece durante o código, mas sim numa [tabela de instruções bytecode Java oficial da linguagem](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions). Esse projeto implementou essa tabela inteira para que o nome do comando e suas variáveis ficassem disponíveis imediatamente para exibição dos comandos usados nos métodos analisados.  
 
-#### Attributes
+#### ----- Attributes -----
 
 Uma lista de atributos está presente aqui no final da exibição.  
 Vou ser bem sincero e falar que não entendi essa porra. Me processe, o git é meu.  
