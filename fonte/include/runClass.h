@@ -12,8 +12,10 @@ void addClass(ClassFile *);
 void addClass(string);
 
 class MethodArea {
+ private:
+  static FrameStack *frameStack;
+
  public:
   static map<string, ClassFile *> classFiles;
-  static FrameStack *frameStack;
   static void setFrameStack(FrameStack *);
 };
