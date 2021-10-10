@@ -2,12 +2,12 @@
 #include <string>
 #include <vector>
 
-#include "writeClassAttributes.h"
+#include "runClass.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  const char *className = "default.class";
+  const char *className = "class/default.class";
 
   // Quando igual a 1 nao foi passado nenhum parametro
   if (argc > 1) {
@@ -29,6 +29,9 @@ int main(int argc, char *argv[]) {
   if (writeSuccess) {
     cout << "Success! Results in file " << outputFileName << endl;
   }
+
+  runClass(classFile);
+
   fclose(fp);
   return 0;
 }

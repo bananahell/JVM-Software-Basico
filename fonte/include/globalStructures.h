@@ -1,3 +1,6 @@
+#ifndef GLOBALSTRUCTURES
+#define GLOBALSTRUCTURES
+
 #include <iostream>
 
 // Tipos de representação de dados da classe
@@ -179,3 +182,5 @@ struct CP_info {
     INVOKE_DYNAMIC_INFO invokeDynamic_info;
   } info;
 };
+
+#endif  // GLOBALSTRUCTURES

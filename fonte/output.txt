@@ -1,282 +1,124 @@
 [-----------------------------Magic, Minor, Major-----------------------------]
 Magic number: 0xcafebabe
 Minor Version: 0
-Major Version: 52 (Java 8)
+Major Version: 58 (Java 14)
 
 
 [--------------------------------Constant Pool--------------------------------]
-Constant Pool Count: 68
-[1] FieldRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: a <I>    *CP Index: 44
+Constant Pool Count: 28
+[1] MethodRef:
+    Class: java/lang/Object    *CP Index: 2
+    Name And Type: <init> <()V>    *CP Index: 3
 
-[2] FieldRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: b <I>    *CP Index: 45
+[2] Class:
+    Name: java/lang/Object    *CP Index: 4
 
-[3] MethodRef:
-    Class: java/lang/Object    *CP Index: 15
-    Name And Type: <init> <()V>    *CP Index: 46
+[3] Name and Type:
+    Name: <init>    *CP Index: 5
+    Type: ()V    *CP Index: 6
 
-[4] Class:
-    Name: javaapplication5/teste02    *CP Index: 47
-
-[5] MethodRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: <init> <(II)V>    *CP Index: 48
-
-[6] FieldRef:
-    Class: java/lang/System    *CP Index: 49
-    Name And Type: out <Ljava/io/PrintStream;>    *CP Index: 50
-
-[7] String:
-    String: A soma eh:    *CP Index: 51
-
-[8] MethodRef:
-    Class: java/io/PrintStream    *CP Index: 52
-    Name And Type: print <(Ljava/lang/String;)V>    *CP Index: 53
-
-[9] MethodRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: soma <(II)I>    *CP Index: 54
-
-[10] MethodRef:
-    Class: java/io/PrintStream    *CP Index: 52
-    Name And Type: println <(I)V>    *CP Index: 55
-
-[11] String:
-    String: A multiplicação eh:    *CP Index: 56
-
-[12] MethodRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: multiplica <(II)I>    *CP Index: 57
-
-[13] String:
-    String: A divisão eh:    *CP Index: 58
-
-[14] MethodRef:
-    Class: javaapplication5/teste02    *CP Index: 4
-    Name And Type: divisao <(II)I>    *CP Index: 59
-
-[15] Class:
-    Name: java/lang/Object    *CP Index: 60
-
-[16] UTF8:
-    Length: 1
-    Content: a
-
-[17] UTF8:
-    Length: 1
-    Content: I
-
-[18] UTF8:
-    Length: 1
-    Content: b
-
-[19] UTF8:
-    Length: 4
-    Content: getA
-
-[20] UTF8:
-    Length: 3
-    Content: ()I
-
-[21] UTF8:
-    Length: 4
-    Content: Code
-
-[22] UTF8:
-    Length: 15
-    Content: LineNumberTable
-
-[23] UTF8:
-    Length: 18
-    Content: LocalVariableTable
-
-[24] UTF8:
-    Length: 4
-    Content: this
-
-[25] UTF8:
-    Length: 26
-    Content: Ljavaapplication5/teste02;
-
-[26] UTF8:
-    Length: 4
-    Content: getB
-
-[27] UTF8:
-    Length: 4
-    Content: setA
-
-[28] UTF8:
-    Length: 4
-    Content: (I)V
-
-[29] UTF8:
-    Length: 4
-    Content: setB
-
-[30] UTF8:
-    Length: 6
-    Content: <init>
-
-[31] UTF8:
-    Length: 5
-    Content: (II)V
-
-[32] UTF8:
-    Length: 4
-    Content: soma
-
-[33] UTF8:
-    Length: 5
-    Content: (II)I
-
-[34] UTF8:
-    Length: 10
-    Content: multiplica
-
-[35] UTF8:
-    Length: 7
-    Content: divisao
-
-[36] UTF8:
-    Length: 4
-    Content: main
-
-[37] UTF8:
-    Length: 22
-    Content: ([Ljava/lang/String;)V
-
-[38] UTF8:
-    Length: 4
-    Content: args
-
-[39] UTF8:
-    Length: 19
-    Content: [Ljava/lang/String;
-
-[40] UTF8:
-    Length: 7
-    Content: objeto1
-
-[41] UTF8:
-    Length: 7
-    Content: objeto2
-
-[42] UTF8:
-    Length: 10
-    Content: SourceFile
-
-[43] UTF8:
-    Length: 12
-    Content: teste02.java
-
-[44] Name and Type:
-    Name: a    *CP Index: 16
-    Type: I    *CP Index: 17
-
-[45] Name and Type:
-    Name: b    *CP Index: 18
-    Type: I    *CP Index: 17
-
-[46] Name and Type:
-    Name: <init>    *CP Index: 30
-    Type: ()V    *CP Index: 61
-
-[47] UTF8:
-    Length: 24
-    Content: javaapplication5/teste02
-
-[48] Name and Type:
-    Name: <init>    *CP Index: 30
-    Type: (II)V    *CP Index: 31
-
-[49] Class:
-    Name: java/lang/System    *CP Index: 62
-
-[50] Name and Type:
-    Name: out    *CP Index: 63
-    Type: Ljava/io/PrintStream;    *CP Index: 64
-
-[51] UTF8:
-    Length: 10
-    Content: A soma eh:
-
-[52] Class:
-    Name: java/io/PrintStream    *CP Index: 65
-
-[53] Name and Type:
-    Name: print    *CP Index: 66
-    Type: (Ljava/lang/String;)V    *CP Index: 67
-
-[54] Name and Type:
-    Name: soma    *CP Index: 32
-    Type: (II)I    *CP Index: 33
-
-[55] Name and Type:
-    Name: println    *CP Index: 68
-    Type: (I)V    *CP Index: 28
-
-[56] UTF8:
-    Length: 21
-    Content: A multiplicação eh:
-
-[57] Name and Type:
-    Name: multiplica    *CP Index: 34
-    Type: (II)I    *CP Index: 33
-
-[58] UTF8:
-    Length: 14
-    Content: A divisão eh:
-
-[59] Name and Type:
-    Name: divisao    *CP Index: 35
-    Type: (II)I    *CP Index: 33
-
-[60] UTF8:
+[4] UTF8:
     Length: 16
     Content: java/lang/Object
 
-[61] UTF8:
+[5] UTF8:
+    Length: 6
+    Content: <init>
+
+[6] UTF8:
     Length: 3
     Content: ()V
 
-[62] UTF8:
+[7] FieldRef:
+    Class: java/lang/System    *CP Index: 8
+    Name And Type: out <Ljava/io/PrintStream;>    *CP Index: 9
+
+[8] Class:
+    Name: java/lang/System    *CP Index: 10
+
+[9] Name and Type:
+    Name: out    *CP Index: 11
+    Type: Ljava/io/PrintStream;    *CP Index: 12
+
+[10] UTF8:
     Length: 16
     Content: java/lang/System
 
-[63] UTF8:
+[11] UTF8:
     Length: 3
     Content: out
 
-[64] UTF8:
+[12] UTF8:
     Length: 21
     Content: Ljava/io/PrintStream;
 
-[65] UTF8:
+[13] String:
+    String: Hello World!    *CP Index: 14
+
+[14] UTF8:
+    Length: 12
+    Content: Hello World!
+
+[15] MethodRef:
+    Class: java/io/PrintStream    *CP Index: 16
+    Name And Type: println <(Ljava/lang/String;)V>    *CP Index: 17
+
+[16] Class:
+    Name: java/io/PrintStream    *CP Index: 18
+
+[17] Name and Type:
+    Name: println    *CP Index: 19
+    Type: (Ljava/lang/String;)V    *CP Index: 20
+
+[18] UTF8:
     Length: 19
     Content: java/io/PrintStream
 
-[66] UTF8:
-    Length: 5
-    Content: print
+[19] UTF8:
+    Length: 7
+    Content: println
 
-[67] UTF8:
+[20] UTF8:
     Length: 21
     Content: (Ljava/lang/String;)V
 
-[68] UTF8:
-    Length: 7
-    Content: println
+[21] Class:
+    Name: HelloWorld    *CP Index: 22
+
+[22] UTF8:
+    Length: 10
+    Content: HelloWorld
+
+[23] UTF8:
+    Length: 4
+    Content: Code
+
+[24] UTF8:
+    Length: 15
+    Content: LineNumberTable
+
+[25] UTF8:
+    Length: 4
+    Content: main
+
+[26] UTF8:
+    Length: 22
+    Content: ([Ljava/lang/String;)V
+
+[27] UTF8:
+    Length: 10
+    Content: SourceFile
+
+[28] UTF8:
+    Length: 15
+    Content: HelloWorld.java
 
 
 
 [-----------------------------Access, This, Super-----------------------------]
-Access Flags: 0x0021 (public)
-This Class: javaapplication5/teste02    *CP Index: 4
-Super Class: java/lang/Object    *CP Index: 15
+Access Flags: 0x0020 ()
+This Class: HelloWorld    *CP Index: 21
+Super Class: java/lang/Object    *CP Index: 2
 
 
 [---------------------------------Interfaces----------------------------------]
@@ -284,258 +126,47 @@ Interfaces Count: 0
 
 
 [-----------------------------------Fields------------------------------------]
-Fields Count: 2
-----------------------------------------
-[1] Name and Type: a <I>
-    Access Flags: 0x0002 (private)
-    Name Index: 16
-    Descriptor Index: 17
-    Attributes Count: 0
-----------------------------------------
-[2] Name and Type: b <I>
-    Access Flags: 0x0002 (private)
-    Name Index: 18
-    Descriptor Index: 17
-    Attributes Count: 0
-----------------------------------------
+Fields Count: 0
 
 
 [-----------------------------------Methods-----------------------------------]
-getA ()I
-Access Flags: public (0x01)
+<init> ()V
+Access Flags: (0x00)
 Attributes: 
   Code
-  Attribute Length: 47
+  Attribute Length: 29
   Code Length: 5
   Bytecode:
     0    aload_0        
-    1    getfield         #1    javaapplication5/teste02!.a
-    4    ireturn        
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 7
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 5
-
-
-getB ()I
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 47
-  Code Length: 5
-  Bytecode:
-    0    aload_0        
-    1    getfield         #2    javaapplication5/teste02!.b
-    4    ireturn        
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 10
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 5
-
-
-setA (I)V
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 62
-  Code Length: 6
-  Bytecode:
-    0    aload_0        
-    1    iload_1        
-    2    putfield         #1    javaapplication5/teste02!.a
-    5    return         
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 13
-    Start PC: 5      Line Number: 14
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 6
-    Start PC: 24     Line Number: 25
-
-
-setB (I)V
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 62
-  Code Length: 6
-  Bytecode:
-    0    aload_0        
-    1    iload_1        
-    2    putfield         #2    javaapplication5/teste02!.b
-    5    return         
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 16
-    Start PC: 5      Line Number: 17
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 6
-    Start PC: 24     Line Number: 25
-
-
-<init> (II)V
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 89
-  Code Length: 15
-  Bytecode:
-    0    aload_0        
-    1    invokespecial    #3    java/lang/Object.<init>
-    4    aload_0        
-    5    iload_1        
-    6    putfield         #1    javaapplication5/teste02!.a
-    9    aload_0        
-    10   iload_2        
-    11   putfield         #2    javaapplication5/teste02!.b
-    14   return         
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 18
-    Start PC: 4      Line Number: 19
-    Start PC: 9      Line Number: 20
-    Start PC: 14     Line Number: 21
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 15
-    Start PC: 24     Line Number: 25
-    Start PC: 0      Line Number: 0
-
-
-soma (II)I
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 66
-  Code Length: 4
-  Bytecode:
-    0    iload_1        
-    1    iload_2        
-    2    iadd           
-    3    ireturn        
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 24
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 4
-    Start PC: 24     Line Number: 25
-    Start PC: 0      Line Number: 0
-
-
-multiplica (II)I
-Access Flags: public (0x01)
-Attributes: 
-  Code
-  Attribute Length: 66
-  Code Length: 4
-  Bytecode:
-    0    iload_1        
-    1    iload_2        
-    2    imul           
-    3    ireturn        
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 27
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 4
-    Start PC: 24     Line Number: 25
-    Start PC: 0      Line Number: 0
-
-
-divisao (II)I
-Access Flags: public static (0x09)
-Attributes: 
-  Code
-  Attribute Length: 56
-  Code Length: 4
-  Bytecode:
-    0    iload_0        
-    1    iload_1        
-    2    idiv           
-    3    ireturn        
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 31
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 4
-    Start PC: 16     Line Number: 17
+    1    invokespecial    #1    java/lang/Objectas�.<init>
+    4    return         
+  Attributes Count: 1
+    cp_index #24 LineNumberTable
+    Start PC: 0      Line Number: 1
 
 
 main ([Ljava/lang/String;)V
 Access Flags: public static (0x09)
 Attributes: 
   Code
-  Attribute Length: 198
-  Code Length: 104
+  Attribute Length: 37
+  Code Length: 9
   Bytecode:
-    0    new              #4    javaapplication5/teste02!
-    3    dup            
-    4    sipush         
-    7    sipush           #2    javaapplication5/teste02!.b  #38   args
-    10   invokespecial    #5    javaapplication5/teste02!.<init>
-    13   astore_1       
-    14   new              #4    javaapplication5/teste02!
-    17   dup            
-    18   sipush           #1    javaapplication5/teste02!.a
-    21   iconst_4       
-    22   invokespecial    #5    javaapplication5/teste02!.<init>
-    25   astore_2       
-    26   getstatic        #6    java/lang/System.out
-    29   ldc              #7    A soma eh:
-    31   invokevirtual    #8    java/io/PrintStream.print
-    34   getstatic        #6    java/lang/System.out
-    37   aload_1        
-    38   aload_1        
-    39   getfield         #1    javaapplication5/teste02!.a
-    42   aload_2        
-    43   getfield         #2    javaapplication5/teste02!.b
-    46   invokevirtual    #9    javaapplication5/teste02!.soma
-    49   invokevirtual    #10   java/io/PrintStream.println
-    52   getstatic        #6    java/lang/System.out
-    55   ldc              #11   A multiplicação eh:
-    57   invokevirtual    #8    java/io/PrintStream.print
-    60   getstatic        #6    java/lang/System.out
-    63   aload_1        
-    64   aload_1        
-    65   getfield         #1    javaapplication5/teste02!.a
-    68   aload_1        
-    69   getfield         #2    javaapplication5/teste02!.b
-    72   invokevirtual    #12   javaapplication5/teste02!.multiplica
-    75   invokevirtual    #10   java/io/PrintStream.println
-    78   getstatic        #6    java/lang/System.out
-    81   ldc              #13   A divisão eh:
-    83   invokevirtual    #8    java/io/PrintStream.print
-    86   getstatic        #6    java/lang/System.out
-    89   aload_1        
-    90   getfield         #1    javaapplication5/teste02!.a
-    93   aload_2        
-    94   getfield         #2    javaapplication5/teste02!.b
-    97   invokestatic     #14   javaapplication5/teste02!.divisao
-    100  invokevirtual    #10   java/io/PrintStream.println
-    103  return         
-  Attributes Count: 2
-    cp_index #22 LineNumberTable
-    Start PC: 0      Line Number: 35
-    Start PC: 14     Line Number: 37
-    Start PC: 26     Line Number: 39
-    Start PC: 34     Line Number: 41
-    Start PC: 52     Line Number: 43
-    Start PC: 60     Line Number: 45
-    Start PC: 78     Line Number: 47
-    Start PC: 86     Line Number: 49
-    Start PC: 103    Line Number: 51
-    cp_index #23 LocalVariableTable
-    Start PC: 0      Line Number: 104
-    Start PC: 38     Line Number: 39
-    Start PC: 0      Line Number: 14
+    0    getstatic        #7    java/lang/System.out
+    3    ldc              #13   Hello World!
+    5    invokevirtual    #15   java/io/PrintStream.println
+    8    return         
+  Attributes Count: 1
+    cp_index #24 LineNumberTable
+    Start PC: 0      Line Number: 3
+    Start PC: 8      Line Number: 4
 
 
 [---------------------------------Attributes----------------------------------]
 Attributes Count: 1
 ----------------------------------------
 [1] Attribute Name: SourceFile
-    Attribute Name Index: 42
+    Attribute Name Index: 27
     Attribute Length: 2
-    SourceFile: teste02.java    *CP Index: 43
+    SourceFile: HelloWorld.java    *CP Index: 28
 ----------------------------------------
