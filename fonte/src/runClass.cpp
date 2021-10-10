@@ -1,6 +1,7 @@
 #include "runClass.h"
 
 map<string, ClassFile *> MethodArea::classFiles;
+FrameStack *MethodArea::frameStack = nullptr;
 
 void runClass(ClassFile *classFile) {
   int main_index = findMain(classFile);
@@ -9,7 +10,7 @@ void runClass(ClassFile *classFile) {
     return;
   }
   addClass(classFile);
-  FrameStack::addFrame(classFile->getMethods().at(main_index), classFile->getConstantPool());
+  FrameStack frameStack(classFile->getMethods().at(main_index), classFile->getConstantPool());
 }
 
 int findMain(ClassFile *classFile) {
@@ -41,5 +42,5 @@ void addClass(ClassFile *classFile) {
 }
 
 void MethodArea::setFrameStack(FrameStack *newFrameStack) {
-  frameStack = newFrameStack;
+  MethodArea::frameStack = newFrameStack;
 }

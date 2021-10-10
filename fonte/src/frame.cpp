@@ -2,7 +2,7 @@
 
 #include "operations.h"
 
-void FrameStack::addFrame(Method_info method_info, std::vector<CP_info> cp_info) {
+FrameStack::FrameStack(Method_info method_info, std::vector<CP_info> cp_info) {
   frame* aux = (frame*)malloc(sizeof(frame));
 
   aux->method_info = method_info;
@@ -24,6 +24,7 @@ void FrameStack::startPC(frame* frame) {
 
 void FrameStack::execute() {
   while (nextInstruction()) {
+    Operations::run(opcode);
   }
 }
 
@@ -38,14 +39,25 @@ bool FrameStack::nextInstruction() {
     frames.top()->pc++;
     return true;
   }
-
-  // remove the top of stack if there isn't any instructions on current method
   this->pop();
-
-  // checks if there is any elements left
-  if (threads.empty()) {
+  if (frames.empty()) {
     return false;
   }
-
   return true;
+}
+
+void FrameStack::pop() {
+  if (!frames.empty()) {
+    delete frames.top()->varStack;
+    delete frames.top()->localVars;
+    // TODO: que?
+    // frames.pop();
+  }
+  if (frames.empty()) {
+    Operations::setFrame(nullptr);
+    Operations::setFrames(nullptr);
+    exit(0);
+  }
+  Operations::setFrame(frames.top());
+  Operations::setFrames(&frames);
 }

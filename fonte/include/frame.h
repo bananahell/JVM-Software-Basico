@@ -1,3 +1,6 @@
+#ifndef FRAME
+#define FRAME
+
 #include <stack>
 #include <vector>
 
@@ -17,10 +20,12 @@ class FrameStack {
   int opcode;
   void startPC(frame *);
   bool nextInstruction();
+  std::stack<frame *> frames;
 
  public:
-  static std::stack<frame *> frames;
-
-  static void addFrame(Method_info, std::vector<CP_info>);
+  FrameStack(Method_info, std::vector<CP_info>);
   void execute();
+  void pop();
 };
+
+#endif  // FRAME
