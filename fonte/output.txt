@@ -138,7 +138,7 @@ Attributes:
   Code Length: 5
   Bytecode:
     0    aload_0        
-    1    invokespecial    #1    java/lang/ObjectP‘æÒü.<init>
+    1    invokespecial    #1    java/lang/Object@%.<init>
     4    return         
   Attributes Count: 1
     cp_index #24 LineNumberTable

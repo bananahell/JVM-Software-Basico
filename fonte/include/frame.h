@@ -10,7 +10,7 @@
 
 typedef struct frame {
   unsigned char *pc;
-  std::vector<CP_info> cp_info;
+  CP_info *cp_info;
   VariableStack *varStack;
   LocalVariables *localVars;
   Method_info method_info;

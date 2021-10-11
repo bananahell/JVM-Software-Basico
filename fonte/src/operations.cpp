@@ -113,7 +113,9 @@ void Operations::dconst_0() {}
 void Operations::dconst_1() {}
 void Operations::bipush() {}
 void Operations::sipush() {}
-void Operations::ldc() {}
+void Operations::ldc() {
+  cout << "É TEEEEEEEEEEEEEEEEEETRA" << endl;
+}
 void Operations::ldc_w() {}
 void Operations::ldc2_w() {}
 void Operations::iload() {}
@@ -269,7 +271,9 @@ void Operations::freturn() {}
 void Operations::dreturn() {}
 void Operations::areturn() {}
 void Operations::func_return() {}
-void Operations::getstatic() {}
+void Operations::getstatic() {
+  cout << "É TEEEEEEEEEEEEEEEEEETRA" << endl;
+}
 void Operations::putstatic() {}
 void Operations::getfield() {}
 void Operations::putfield() {}

@@ -6,10 +6,7 @@ FrameStack::FrameStack(ClassFile* classFile) {
   frame* aux = (frame*)malloc(sizeof(frame));
   int main_index = findMain(classFile);
   aux->method_info = (Method_info)classFile->getMethods().at(main_index);
-  aux->cp_info.clear();
-  for (int i = 0; i < classFile->getConstantPool().size(); i++) {
-    aux->cp_info.push_back(classFile->getConstantPool().at(i));
-  }
+  aux->cp_info = classFile->getConstantPool().data();
 
   cout << "main_index = " << main_index << endl;
   cout << "classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack = "
