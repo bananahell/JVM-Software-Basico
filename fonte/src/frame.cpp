@@ -2,20 +2,38 @@
 
 #include "operations.h"
 
-FrameStack::FrameStack(Method_info method_info, std::vector<CP_info> cp_info) {
+FrameStack::FrameStack(ClassFile* classFile) {
   frame* aux = (frame*)malloc(sizeof(frame));
+  int main_index = findMain(classFile);
+  aux->method_info = (Method_info)classFile->getMethods().at(main_index);
+  aux->cp_info.clear();
+  for (int i = 0; i < classFile->getConstantPool().size(); i++) {
+    aux->cp_info.push_back(classFile->getConstantPool().at(i));
+  }
 
-  aux->method_info = method_info;
-  aux->cp_info = cp_info;
-  aux->varStack = new VariableStack(aux->method_info.attributes->info.code_info.maxStack);
-  aux->localVars = new LocalVariables(aux->method_info.attributes->info.code_info.maxLocals);
+  cout << "main_index = " << main_index << endl;
+  cout << "classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack = "
+       << classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack << endl;
+  cout << "aux->method_info.attributes[0].info.code_info.maxStack = "
+       << aux->method_info.attributes[0].info.code_info.maxStack << endl;
+  cout << "aux->method_info.attributes[0].info.code_info.maxLocals = "
+       << aux->method_info.attributes[0].info.code_info.maxLocals << endl;
+
+  int maxStack = aux->method_info.attributes[0].info.code_info.maxStack;
+  cout << "Cheguei aqui" << endl;
+  aux->varStack = new VariableStack(maxStack);
+  cout << "Cheguei aqui" << endl;
+  int maxLocals = aux->method_info.attributes[0].info.code_info.maxLocals;
+  aux->localVars = new LocalVariables(maxLocals);
+  cout << "Cheguei aqui" << endl;
   startPC(aux);
-  Operations::setFrame(aux);
+  frames.push(aux);
+  Operations::setFrame(frames.top());
   Operations::setFrames(&frames);
   Operations::setFrameStack(this);
 
   MethodArea::setFrameStack(this);
-  frames.push(aux);
+  opcode = 0;
 }
 
 void FrameStack::startPC(frame* frame) {
@@ -26,6 +44,27 @@ void FrameStack::execute() {
   while (nextInstruction()) {
     Operations::run(opcode);
   }
+}
+
+int FrameStack::findMain(ClassFile* classFile) {
+  int main_index = -1;
+  vector<Method_info> allMethods = classFile->getMethods();
+  for (int i = 0; i < classFile->getMethodsCount(); i++) {
+    int flags = allMethods.at(i).access_flags;
+    int name_index = allMethods.at(i).name_index;
+    string name = ReadClassByteCode::getUTF8(classFile->getConstantPool().at(name_index - 1));
+    int descriptor_index = allMethods.at(i).descriptor_index;
+    string descriptor = ReadClassByteCode::getUTF8(classFile->getConstantPool().at(descriptor_index - 1));
+    if (name == "main") {
+      if (descriptor == "([Ljava/lang/String;)V") {
+        if ((flags & 0x09) == 0x09) {
+          main_index = i;
+          break;
+        }
+      }
+    }
+  }
+  return main_index;
 }
 
 bool FrameStack::nextInstruction() {

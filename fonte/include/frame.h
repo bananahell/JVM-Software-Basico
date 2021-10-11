@@ -4,6 +4,7 @@
 #include <stack>
 #include <vector>
 
+#include "classFile.h"
 #include "localVariables.h"
 #include "variableStack.h"
 
@@ -23,7 +24,8 @@ class FrameStack {
   std::stack<frame *> frames;
 
  public:
-  FrameStack(Method_info, std::vector<CP_info>);
+  FrameStack(ClassFile *);
+  static int findMain(ClassFile *);
   void execute();
   void pop();
 };

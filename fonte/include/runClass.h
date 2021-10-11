@@ -7,7 +7,6 @@
 using namespace std;
 
 void runClass(ClassFile *);
-int findMain(ClassFile *);
 void addClass(ClassFile *);
 void addClass(string);
 

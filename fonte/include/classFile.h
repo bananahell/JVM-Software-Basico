@@ -1,3 +1,6 @@
+#ifndef CLASSFILE
+#define CLASSFILE
+
 #include "readClassByteCode.h"
 
 class ClassFile {
@@ -45,3 +48,5 @@ class ClassFile {
   u2 getAttributesCount();
   vector<Attribute_info> getAttributes();
 };
+
+#endif  // CLASSFILE
