@@ -1,6 +1,6 @@
 #include "operations.h"
 
-frame *Operations::frame = nullptr;
+frame *Operations::opframe = nullptr;
 stack<struct frame *> *Operations::frames = nullptr;
 FrameStack *Operations::frameStack = nullptr;
 bool Operations::isWide = false;
@@ -76,11 +76,21 @@ const fun Operations::functions[] = {
     &Operations::jsr_w};
 
 Operations::Operations(struct frame *ref) {
-  this->frame = ref;
+  this->opframe = ref;
+}
+
+u4 Operations::getNBytesValue(u1 n, unsigned char **pc) {
+  u4 value = **pc;
+  *pc += 1;
+  for (int i = 1; i < n; i++) {
+    value = (value << 8) | **pc;
+    *pc += 1;
+  }
+  return value;
 }
 
 void Operations::setFrame(struct frame *newFrame) {
-  frame = newFrame;
+  opframe = newFrame;
 }
 
 void Operations::setFrames(stack<struct frame *> *newFrames) {
@@ -95,26 +105,35 @@ void Operations::run(int opcode) {
   functions[opcode]();
 }
 
-void Operations::nop() {}
+void Operations::nop() {
+  cout << "nop()" << endl;
+}
 void Operations::aconst_null() {}
 void Operations::iconst_m1() {}
 void Operations::iconst_0() {}
 void Operations::iconst_1() {}
 void Operations::iconst_2() {}
 void Operations::iconst_3() {}
-void Operations::iconst_4() {}
+void Operations::iconst_4() {
+  cout << "iconst4()" << endl;
+  opframe->varStack->push(int(4));
+}
 void Operations::iconst_5() {}
 void Operations::lconst_0() {}
 void Operations::lconst_1() {}
 void Operations::fconst_0() {}
 void Operations::fconst_1() {}
-void Operations::fconst_2() {}
+void Operations::fconst_2() {
+  cout << "fconst_2()" << endl;
+}
 void Operations::dconst_0() {}
-void Operations::dconst_1() {}
+void Operations::dconst_1() {
+  cout << "dconst_1()" << endl;
+}
 void Operations::bipush() {}
 void Operations::sipush() {}
 void Operations::ldc() {
-  cout << "É TEEEEEEEEEEEEEEEEEETRA" << endl;
+  cout << "ldc()" << endl;
 }
 void Operations::ldc_w() {}
 void Operations::ldc2_w() {}
@@ -270,14 +289,31 @@ void Operations::lreturn() {}
 void Operations::freturn() {}
 void Operations::dreturn() {}
 void Operations::areturn() {}
-void Operations::func_return() {}
+void Operations::func_return() {
+  cout << "func_return()" << endl;
+}
 void Operations::getstatic() {
-  cout << "É TEEEEEEEEEEEEEEEEEETRA" << endl;
+  cout << "getstatic()" << endl;
+  u2 indexByte = getNBytesValue(2, &opframe->pc);
+  opframe->pc -= 3;
+  frame *auxframe = opframe;
+  CP_info cp_element = opframe->cp_info[indexByte];
+  string className = ReadClassByteCode::getUTF8(cp_element);
+  CP_info cp_nameElement = opframe->cp_info[cp_element.info.nameAndType_info.name_index];
+  CP_info cp_typeElement = opframe->cp_info[cp_element.info.nameAndType_info.descriptor_index];
+  string name = ReadClassByteCode::getUTF8(cp_nameElement);
+  string type = ReadClassByteCode::getUTF8(cp_typeElement);
+  if (name == "java/lang/System" && type == "Ljava/io/PrintStream;") {
+    opframe->pc += 3;
+    return;
+  }
 }
 void Operations::putstatic() {}
 void Operations::getfield() {}
 void Operations::putfield() {}
-void Operations::invokevirtual() {}
+void Operations::invokevirtual() {
+  cout << "invokevirtual()" << endl;
+}
 void Operations::invokespecial() {}
 void Operations::invokestatic() {}
 void Operations::invokeinterface() {}

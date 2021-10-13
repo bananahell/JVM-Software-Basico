@@ -10,11 +10,8 @@ void runClass(ClassFile *classFile) {
     return;
   }
   addClass(classFile);
-  cout << "main_index = " << main_index << endl;
-  cout << "classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack = "
-       << classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack << endl;
   FrameStack frameStack(classFile);
-  cout << "Passei do construtor de FrameStack o/" << endl;
+  frameStack.execute();
 }
 
 void addClass(ClassFile *classFile) {

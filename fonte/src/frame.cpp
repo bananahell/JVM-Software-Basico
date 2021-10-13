@@ -1,5 +1,7 @@
 #include "frame.h"
 
+#include <iomanip>
+
 #include "operations.h"
 
 FrameStack::FrameStack(ClassFile* classFile) {
@@ -8,21 +10,10 @@ FrameStack::FrameStack(ClassFile* classFile) {
   aux->method_info = (Method_info)classFile->getMethods().at(main_index);
   aux->cp_info = classFile->getConstantPool().data();
 
-  cout << "main_index = " << main_index << endl;
-  cout << "classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack = "
-       << classFile->getMethods().at(main_index).attributes[0].info.code_info.maxStack << endl;
-  cout << "aux->method_info.attributes[0].info.code_info.maxStack = "
-       << aux->method_info.attributes[0].info.code_info.maxStack << endl;
-  cout << "aux->method_info.attributes[0].info.code_info.maxLocals = "
-       << aux->method_info.attributes[0].info.code_info.maxLocals << endl;
-
   int maxStack = aux->method_info.attributes[0].info.code_info.maxStack;
-  cout << "Cheguei aqui" << endl;
   aux->varStack = new VariableStack(maxStack);
-  cout << "Cheguei aqui" << endl;
   int maxLocals = aux->method_info.attributes[0].info.code_info.maxLocals;
   aux->localVars = new LocalVariables(maxLocals);
-  cout << "Cheguei aqui" << endl;
   startPC(aux);
   frames.push(aux);
   Operations::setFrame(frames.top());
@@ -39,6 +30,7 @@ void FrameStack::startPC(frame* frame) {
 
 void FrameStack::execute() {
   while (nextInstruction()) {
+    cout << "opcode: " << setw(3) << opcode << " -> ";
     Operations::run(opcode);
   }
 }
@@ -86,8 +78,7 @@ void FrameStack::pop() {
   if (!frames.empty()) {
     delete frames.top()->varStack;
     delete frames.top()->localVars;
-    // TODO: que?
-    // frames.pop();
+    frames.pop();
   }
   if (frames.empty()) {
     Operations::setFrame(nullptr);

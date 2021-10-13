@@ -5,10 +5,11 @@ typedef void (*fun)(void);
 class Operations {
  private:
   const static fun functions[];
-  static struct frame *frame;
+  static struct frame *opframe;
   static stack<struct frame *> *frames;
   static FrameStack *frameStack;
   static bool isWide;
+  static u4 getNBytesValue(u1, unsigned char **);
 
   // funcoes auxiliares
   static void lload_n(short index);
