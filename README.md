@@ -2,9 +2,7 @@
 
 Trabalho da matéria de Software Básico  
 14/0065032 - Pedro Henriques Nogueira  
-18/0112520 - Paulo Mauricio Costa Lopes  
 18/0046926 - Mariana Borges de Sampaio  
-15/0010290 - Gabriel Nazareno Halabi  
 UnB - 2021/1  
 
 ## Especificações
@@ -23,7 +21,7 @@ Contém vários comandos, mas só precisa de um ```make ajuda``` na console para
 Basicamente, se compila com ```make debug``` ou ```make release```, se roda o [cppcheck](https://cppcheck.sourceforge.io/) com ```make cppcheck``` e se executa o programa depois de compilado com ```make executa```.  
 Note que desse jeito um arquivo ```default.class``` presente na pasta fonte será lido. Para ler outro arquivo .class presente na pasta fonte, deve-se rodar manualmente o comando ```./main.exe``` seguido do nome do arquivo.  
 Sugestão de comando (Hello World):  
-```make limpa && make debug && make cppcheck && ./main.exe default.class```  
+```make limpa && make debug && make cppcheck && ./main.exe ./class/HelloWorld.class```  
 
 #### (./fonte/) lib, include e src
 

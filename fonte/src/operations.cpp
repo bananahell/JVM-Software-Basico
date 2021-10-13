@@ -293,20 +293,20 @@ void Operations::func_return() {
   cout << "func_return()" << endl;
 }
 void Operations::getstatic() {
-  cout << "getstatic()" << endl;
-  u2 indexByte = getNBytesValue(2, &opframe->pc);
-  opframe->pc -= 3;
-  frame *auxframe = opframe;
-  CP_info cp_element = opframe->cp_info[indexByte];
-  string className = ReadClassByteCode::getUTF8(cp_element);
-  CP_info cp_nameElement = opframe->cp_info[cp_element.info.nameAndType_info.name_index];
-  CP_info cp_typeElement = opframe->cp_info[cp_element.info.nameAndType_info.descriptor_index];
-  string name = ReadClassByteCode::getUTF8(cp_nameElement);
-  string type = ReadClassByteCode::getUTF8(cp_typeElement);
-  if (name == "java/lang/System" && type == "Ljava/io/PrintStream;") {
-    opframe->pc += 3;
-    return;
-  }
+  cout << "getstatic()" << endl; /*
+   u2 indexByte = getNBytesValue(2, &opframe->pc);
+   opframe->pc -= 3;
+   frame *auxframe = opframe;
+   CP_info cp_element = opframe->cp_info[indexByte];
+   string className = ReadClassByteCode::getUTF8(cp_element);
+   CP_info cp_nameElement = opframe->cp_info[cp_element.info.nameAndType_info.name_index];
+   CP_info cp_typeElement = opframe->cp_info[cp_element.info.nameAndType_info.descriptor_index];
+   string name = ReadClassByteCode::getUTF8(cp_nameElement);
+   string type = ReadClassByteCode::getUTF8(cp_typeElement);
+   if (name == "java/lang/System" && type == "Ljava/io/PrintStream;") {
+     opframe->pc += 3;
+     return;
+   }*/
 }
 void Operations::putstatic() {}
 void Operations::getfield() {}

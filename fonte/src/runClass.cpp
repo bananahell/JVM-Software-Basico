@@ -6,7 +6,7 @@ FrameStack *MethodArea::frameStack = nullptr;
 void runClass(ClassFile *classFile) {
   int main_index = FrameStack::findMain(classFile);
   if (main_index == -1) {
-    cout << "Parcero deu ruim" << endl;
+    cout << "Main not found!" << endl;
     return;
   }
   addClass(classFile);
